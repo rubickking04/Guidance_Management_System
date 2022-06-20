@@ -5,7 +5,7 @@ include("function.php");
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     // $name = $_POST['name'];
     $myEmail = $_POST['email'];
-    $pass = $_POST['password'];
+    $pass = md5($_POST['password']);
     if(!empty($myEmail) && !empty($pass) ){
         //read from database
         $query = "SELECT * FROM `users` WHERE email = '$myEmail' limit 1";

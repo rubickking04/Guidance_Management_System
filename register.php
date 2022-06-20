@@ -5,7 +5,7 @@ session_start();
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $name = $_POST['name'];
         $myEmail = $_POST['email'];
-        $pass = $_POST['password'];
+        $pass = md5($_POST['password']);
         if(!empty($name) && !empty($myEmail) && !empty($pass) ){
             //save from database
             $query = "INSERT INTO `users` (`name`,`email`,`password`) VALUES ('$name', '$myEmail', '$pass')";
